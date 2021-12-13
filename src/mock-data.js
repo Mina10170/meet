@@ -1,4 +1,4 @@
-const mockData = [
+const mockData =[
     {
         "kind": "calendar#events",
         "etag": "\"p3308h454qfgum0g\"",
@@ -7,7 +7,7 @@ const mockData = [
         "timeZone": "Europe/Berlin",
         "accessRole": "reader",
         "defaultReminders": [],
-        "nextPageToken": "EjYKKzZjbzBvamwwbDBqMHJiaDNnNTZ2bGMyczlpXzIwMjAwODEyVDAxMDAwMFoYgNikkdaU6wIiBwgFEM6chB0=",
+        "nextPageToken": "EjYKKzZjbzBvamwwbDBqMHJiaDNnNTZ2bGMyczlpXzIwMjAwODEyVDAxMDAwMFoYgNikkdaU6wIiBwgFEKCIrx0=",
         "items": [
          {
           "kind": "calendar#event",
@@ -15248,6 +15248,6 @@ const mockData = [
          }
         ]
        }
-    ];
-
-    export { mockData };
+       
+        ]
+        export { mockData };
