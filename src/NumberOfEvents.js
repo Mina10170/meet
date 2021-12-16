@@ -1,44 +1,39 @@
-import React, {Component} from 'react';
-import { ErrorAlert } from './Alert'
+import React, { Component } from 'react';
+// import './css/NumberOfEvents.css';
 
 class NumberOfEvents extends Component {
-  state = {
-    numberOfEvents: 16,
-    errorText: '',
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      number: 32
+    };
   }
 
   handleInputChanged = (event) => {
-    const value = event.target.value;
-    if (value < 1 || value > 16) {
-      this.setState({
-        numberOfEvents: '',
-        errorText: 'Please enter a number between 1 and 16',
-      })
-    } else {
-      this.setState({
-        numberOfEvents: value,
-        errorText: '',
-      });
-    }
-    this.props.updateNumberOfEvents(event.target.value);
-  };
+    const value = this.RemoveNonNumeric(event.target.value);
+    this.setState({
+      number: value,
+    });
+    
+    //unit test for NumberOfEvents fails if it tries to run this function
+    if (this.props.updateNumberOfEvents)
+      this.props.updateNumberOfEvents(value);
+
+  }
+
+  RemoveNonNumeric = (text) => {
+    return text.replace(/[^0-9]/g, '');
+  }
 
 
   render() {
     return (
-      <div className="NumberOfEvents">
-
-        <p><b>Number of Events:</b></p>
-        <input
-        type="number"
-        name="number"
-        className="number-of-events"
-        value={this.props.numberOfEvents}
-        onChange={(e) => this.handleInputChanged(e)}
-        />
-        <ErrorAlert text={this.state.errorText} />
+      <div className="number-of-events">
+        <label id="number-of-events__label" htmlFor="number-of-events__input">Number of Events:</label>
+        <input id="number-of-events__input" value={this.state.number} onChange={this.handleInputChanged} />
       </div>
-    );
+    )
   }
 }
 
