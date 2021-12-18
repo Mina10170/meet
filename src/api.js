@@ -81,10 +81,16 @@ export const getEvents = async () => {
     return mockData;
   } 
 
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    nProgress.done();
+    return data ? JSON.parse(data).events : [];
+  }
+
   const token = await getAccessToken();
 
   if (token) {
-    removeQuery(); //remove the code from the url once we are done with it
+    //removeQuery(); //remove the code from the url once we are done with it
     const url = `https://efibyb54fl.execute-api.us-east-2.amazonaws.com/dev/api/get-calendar-events/${token}`;
     const result = await axios.get(url);
     if (result.data) {
