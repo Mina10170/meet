@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// the main parent class
 class Alert extends Component {
   constructor(props) {
     super(props);
@@ -20,23 +21,21 @@ class Alert extends Component {
     );
   }
 }
+
+ // the  infaAlert subclass
 class InfoAlert extends Alert {
-    constructor(props) {
-      super(props);
-      this.color = 'blue';
-    }
+  constructor(props) {
+    super(props);
+    this.color = 'blue';
   }
-  class ErrorAlert extends Alert {
-    constructor(props) {
-      super(props);
-      this.color = 'red';
-    }
+}
+
+ // the  erorAlert subclass
+ class ErrorAlert extends Alert {
+  constructor(props) {
+    super(props);
+    this.color = 'red';
   }
-  class WarningAlert extends Alert {
-    constructor(props) {
-      super(props);
-      this.color = 'orange';
-    }
-  }
-  
-  export { InfoAlert, ErrorAlert, WarningAlert };
+}
+
+export { InfoAlert, ErrorAlert };
